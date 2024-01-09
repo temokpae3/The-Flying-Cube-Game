@@ -32,6 +32,7 @@ class MainMenu extends GameObject {
 		if (this.visible) {
 			this.visible = false;
 			createObject(new Player());
+			startPlaying();
 		}
 	}
 
