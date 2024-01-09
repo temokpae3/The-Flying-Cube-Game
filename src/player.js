@@ -25,6 +25,7 @@ class Player extends GameObject {
 
 	onDestroy() {
 		scene.removeMesh(this.playerMesh);
+		stopPlaying();
 	}
 
 	update(deltaTime) {

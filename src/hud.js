@@ -1,5 +1,9 @@
 var score = 0;
 var scoreText;
+var scoreIncreaseInterval = 1000; // Increase the score every second
+var scoreIncreaseAmount = 1; // Number of points to increase the score by
+var playTime = 0;
+var playTimeInterval;
 
 var createHud = function () {
 	var hudTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -32,4 +36,15 @@ var resetScore = function () {
 var addScore = function (points) {
 	score += points;
 	updateScoreText();
+};
+
+var startPlaying = function () {
+    playTimeInterval = setInterval(function () {
+        playTime += scoreIncreaseInterval;
+        addScore(scoreIncreaseAmount);
+    }, scoreIncreaseInterval);
+};
+
+var stopPlaying = function () {
+    clearInterval(playTimeInterval);
 };
